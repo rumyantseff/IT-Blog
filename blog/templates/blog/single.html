@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>{{ post.title }}</title>
+    <meta name="description" content="Thoughts, reviews and ideas since 1999." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="{% static '#' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/screen.css' %}" />
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:400,300italic,300,400italic,700,700italic|Playfair+Display:400,700,400italic,700italic" />
+</head>
+
+<body class="post-template">
+    <div class="site-wrapper">
+        <nav class="main-nav overlay clearfix">
+            <a class="blog-logo" href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}"
+                    alt="Fashion Critiques" /></a>
+            <ul id="menu">
+                <li class="nav-home nav-current" role="presentation"><a href="{% url 'home' %}">Home</a></li>
+                <li class="nav-author-page" role="presentation"><a href="http://vladru.site/">Author Page</a></li>
+                <span class="socialheader">
+                    <a href="#"><span class='symbol'>circletwitterbird</span></a>
+                    <a href="#"><span class='symbol'>circlefacebook</span></a>
+                    <a href="#"><span class='symbol'>circlegoogleplus</span></a>
+                    <a href="mailto:wowthemesnet@gmail.com"><span class='symbol'>circleemail</span></a>
+                </span>
+            </ul>
+        </nav>
+        <header class="main-header post-head " style="background-image: url({{ post.image.url }})">
+            <div class="vertical">
+                <div class="main-header-content inner">
+                    <h1 class="post-title">{{ post.title }}</h1>
+                    <div class="entry-title-divider">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <section class="post-meta">
+                        <time class="post-date">{{ post.created_at|date:"d.m.Y" }}</time>
+                    </section>
+                </div>
+            </div>
+        </header>
+        <main id="content" class="content" role="main">
+            <div class="wraps">
+                <img src="{% static 'img/shadow.png' %}" class="wrapshadow">
+                <article class="post featured">
+                    <section class="post-content">
+                        <p>{{ post.content|safe }}</p>
+                    </section>
+                    <footer class="post-footer">
+                        <figure class="author-image">
+                            <a class="img" style="background-image: url({% static 'img/gravatar.jpg' %})"><span
+                                    class="hidden">David's
+                                    Picture</span></a>
+                        </figure>
+                        <section class="author">
+                            <h4><a href="http://vladru.site/">{{ post.author }}</a></h4>
+                        </section>
+                        <section class="share">
+                            <h4>Share this post</h4>
+                            <a class="icon-twitter"
+                                href="https://twitter.com/intent/tweet?text=Once%20Upon%20a%20Time&amp;url=#"
+                                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                                <span class="hidden">Twitter</span>
+                            </a>
+                            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=#"
+                                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                                <span class="hidden">Facebook</span>
+                            </a>
+                            <a class="icon-google-plus" href="https://plus.google.com/share?url=#"
+                                onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                                <span class="hidden">Google+</span>
+                            </a>
+                        </section>
+                    </footer>
+
+                </article>
+            </div>
+        </main>
+        <div class="clearfix">
+        </div>
+
+        <footer class="site-footer clearfix">
+            <a href="#top" id="back-to-top" class="back-top"></a>
+            <div class="text-center">
+                <a href="">Nectaria Template</a> &copy; 2016<br />
+                Free HTML Template by <a href="https://wowthemes.net">WowThemes.net</a>
+            </div>
+        </footer>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/masonry.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.fitvids.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+</body>
+
+</html>
